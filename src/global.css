@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { 
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body { 
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background Manager container & layers */
+.background-manager {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #0f0c29; /* fallback matching uniform gradient */
+}
+.background-manager::after { /* subtle texture overlay */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 25% 25%,rgba(255,255,255,0.03),transparent 60%),radial-gradient(circle at 75% 70%,rgba(255,255,255,0.02),transparent 65%);
+  mix-blend-mode: overlay;
+  opacity: .4;
+  pointer-events: none;
+}
+.bgm-layer {
+  position: absolute;
+  inset: 0;
+  background-size: 300% 300% !important;
+  animation: bgmMove 35s ease-in-out infinite;
+  filter: brightness(0.92) saturate(110%);
+}
+@keyframes bgmMove {
+  0%, 100% { background-position: 0% 50%; }
+  33% { background-position: 100% 50%; }
+  66% { background-position: 50% 100%; }
+}
+
+html { scroll-behavior: smooth; }
+
+/* Removed unused background-main class */
+
+/* Reveal animation utilities */
+.reveal { opacity: 0; transform: translateY(48px); transition: opacity .9s cubic-bezier(.19,1,.22,1), transform .9s cubic-bezier(.19,1,.22,1); will-change: opacity, transform; }
+.reveal-visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: .08s; }
+.reveal-delay-2 { transition-delay: .16s; }
+.reveal-delay-3 { transition-delay: .24s; }
+
+
+/* Hero gradient background */
+.hero-bg {
+  background: linear-gradient(90deg, #feac5e, #c779d0, #4bc0c8);
+  background-size: 400% 400%;
+  animation: heroGradient 10s ease infinite;
+}
+
+@keyframes heroGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Smooth transitions for images */
+img { transition: transform .4s ease; }
+
+/* Removed redundant gradient animation - handled by BackgroundManager */
+
+@keyframes float {
+	0%, 100% { transform: translateY(-8px); }
+	50% { transform: translateY(8px); }
+}
+.animate-float { 
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.animate-spin-slow { animation: spin-slow 18s linear infinite; }
+
+
+.shadow-avatar-glow {
+  box-shadow: rgba(227, 135, 255, 0.25) -50px -20px 40px,
+              rgba(255, 219, 57, 0.3) 0px 50px 40px,
+              rgba(118, 255, 255, 0.3) 50px -20px 40px,
+              rgba(255, 255, 255, 0.6) 0px 0px 2pt 4pt;
+}
+
+/* Shared hero gradient text */
+.hero-text-gradient {
+  background-image: linear-gradient(90deg, #f5b3ff 0%, #b6c9ff 35%, #8bd9ff 55%, #caa8ff 75%, #f5b3ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Typography scale utilities (applied via className) */
+:root {
+  /* Reference sizes */
+  --font-display: clamp(2.5rem, 6vw, 4.5rem); /* main hero / big headings */
+  --font-h1: clamp(2.25rem, 5vw, 3.5rem);
+  --font-h2: clamp(1.875rem, 4vw, 3rem);
+  --font-h3: clamp(1.5rem, 2.8vw, 2.25rem);
+  --font-lead: clamp(1.125rem, 1.4vw, 1.5rem);
+  --font-body: 1rem;
+  --font-small: 0.875rem;
+}
+
+.font-display { font-size: var(--font-display); line-height: 1.05; letter-spacing: -0.02em; }
+.font-h1 { font-size: var(--font-h1); line-height: 1.1; letter-spacing: -0.02em; }
+.font-h2 { font-size: var(--font-h2); line-height: 1.15; }
+.font-h3 { font-size: var(--font-h3); line-height: 1.2; }
+.font-lead { font-size: var(--font-lead); line-height: 1.4; }
+.font-body { font-size: var(--font-body); line-height: 1.6; }
+.font-small { font-size: var(--font-small); line-height: 1.4; }
+
+/* Weight helpers */
+.fw-regular { font-weight: 400; }
+.fw-medium { font-weight: 500; }
+.fw-semibold { font-weight: 600; }
+.fw-bold { font-weight: 700; }
+.fw-extrabold { font-weight: 800; }
+
+/* Utility to apply gradient text consistently */
