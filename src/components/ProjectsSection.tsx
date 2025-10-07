@@ -4,43 +4,53 @@ import useReveal from '../hooks/useReveal';
 const projects = [
   {
     id: 1,
-    title: '🤖 Drushti – Conversational Image Recognition Chatbot',
-    category: 'AI Application',
-    description: 'AI chatbot with computer vision + NLP, deployed on Vercel. Improved accuracy by 60–70% with custom algorithms.',
-    image: '/projects/project1.jpg',
-    technologies: ['Python', 'AI/ML', 'Computer Vision', 'NLP'],
-    link: 'https://github.com/Satya-AK45',
-    gradient: 'from-purple-400 to-indigo-500'
-  },
-  {
-    id: 2,
     title: '🎯 Disha – AI Career Guidance System',
     category: 'AI System',
     description: 'Career recommendation system using Google Gemini AI. Helped 250+ users with personalized paths aligned with NEP 2020.',
     image: '/projects/project2.jpg',
     technologies: ['Google Gemini AI', 'Python', 'Web Development'],
-    link: 'https://github.com/Satya-AK45',
+    link: 'https://disha1.vercel.app/',
     gradient: 'from-emerald-400 to-cyan-500'
   },
   {
+    id: 2,
+    title: '🤖 Drushti – Conversational Image Recognition Chatbot',
+    category: 'AI Application',
+    description: 'AI chatbot with computer vision + NLP, deployed on Vercel. Improved accuracy by 60–70% with custom algorithms.',
+    image: '/projects/project1.jpg',
+    technologies: ['Python', 'AI/ML', 'Computer Vision', 'NLP'],
+    link: 'https://drushti.vercel.app',
+    gradient: 'from-purple-400 to-indigo-500'
+  },
+  {
     id: 3,
-    title: '🌐 Personal Portfolio Website',
+    title: '🌐 Weather App',
     category: 'Web Development',
-    description: 'Built with Vite.js + React + Tailwind CSS. Attracted 400+ visits in the first month.',
+    description: 'Interactive weather application built with Vanilla JavaScript. Features real-time weather data and responsive design.',
     image: '/projects/project3.jpg',
-    technologies: ['React', 'Vite.js', 'Tailwind CSS', 'TypeScript'],
-    link: 'https://satyakam.netlify.app',
+    technologies: ['JavaScript', 'HTML/CSS', 'Weather API', 'Responsive Design'],
+    link: 'https://ak-weather-satya.netlify.app/',
     gradient: 'from-blue-400 to-cyan-500'
   },
   {
     id: 4,
-    title: '🎨 Other Projects',
-    category: 'Various',
-    description: 'Paint App • Coffee Shop Website • Image Editing Tool • Weather App (Vanilla JS)',
+    title: '🎨 Paint App',
+    category: 'Web Application',
+    description: 'Digital painting application with canvas API. Features multiple brush tools and color palettes.',
     image: '/projects/project4.jpg',
-    technologies: ['JavaScript', 'HTML/CSS', 'Canvas API'],
-    link: 'https://github.com/Satya-AK45',
+    technologies: ['JavaScript', 'HTML5 Canvas', 'CSS3', 'Canvas API'],
+    link: 'https://paint-satya.netlify.app/',
     gradient: 'from-pink-400 to-rose-500'
+  },
+  {
+    id: 5,
+    title: '📸 Image Editing Tool',
+    category: 'Web Application',
+    description: 'Browser-based image editor with filters, cropping, and enhancement features.',
+    image: '/projects/project5.jpg',
+    technologies: ['JavaScript', 'Canvas API', 'File API', 'CSS3'],
+    link: 'https://imgedit-satya.netlify.app/',
+    gradient: 'from-green-400 to-emerald-500'
   }
 ];
 
@@ -140,6 +150,8 @@ export const ProjectsSection: React.FC = () => {
                   {/* Link */}
                   <a
                     href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 fw-medium font-small group/link transition-colors"
                   >
                     View Project
